@@ -92,16 +92,12 @@ window.addEventListener("DOMContentLoaded", function() {
 
     const avatarSection = document.querySelector(".header__avatar"),
           modalWindowImage = document.querySelector(".modal__image"),
-          image = document.querySelectorAll(".header__avatar-img"),
           sectionImg = document.querySelector(".modal__image-img");
 
     avatarSection.addEventListener("click", function(event) {
         if (event.target && event.target.classList.contains("header__avatar-img")) {
-            image.forEach(function(item) {
-                if (event.target == item) {
-                    sectionImg.innerHTML = `<img src="${item.currentSrc}" alt="">`
-                }
-            });
+            
+            sectionImg.innerHTML = `<img src="${event.target.currentSrc}" alt="">`;
             showModalWindow(modalWindowImage);
         }
     });
