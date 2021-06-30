@@ -1,0 +1,6 @@
+.show {
+    display: grid;
+}
+.hide {
+    display: none;
+}
