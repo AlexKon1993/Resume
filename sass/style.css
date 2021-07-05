@@ -58,7 +58,7 @@ body {
   position: relative;
   -ms-flex-line-pack: center;
       align-content: center;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .header::before {
@@ -75,6 +75,11 @@ body {
 .header__logo {
   color: white;
   text-align: center;
+  margin-bottom: 100px;
+}
+
+.header__logo_text-color {
+  color: red;
 }
 
 .header__logo h1 {
@@ -84,6 +89,25 @@ body {
 .header__logo p {
   color: white;
   margin-bottom: 50px;
+}
+
+.header__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__menu-link {
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid black;
+}
+
+.header__menu-link:hover {
+  border-bottom: 4px solid white;
 }
 
 .main {
