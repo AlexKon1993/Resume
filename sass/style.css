@@ -144,7 +144,8 @@ body {
 }
 
 .main button {
-  margin: 100px auto;
+  display: block;
+  margin: 50px auto;
 }
 
 .footer {

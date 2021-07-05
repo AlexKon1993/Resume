@@ -121,7 +121,8 @@ body {
         } 
     }
     button {
-        margin: 100px auto;
+        display: block;
+        margin: 50px auto;
         @extend %btn__connection;
     }   
 }
