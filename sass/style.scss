@@ -1,214 +1,197 @@
-%btn__connection {
+body{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    min-height: 100%;
     margin: 0 auto;
-    width: 200px;
-    height: 50px;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    font-size: 18px;
-    background: rgb(91, 32, 255);
-    cursor: pointer;
-    box-shadow: -10px 3px 10px 0px rgba(0, 0, 0, 0.1),
-                10px 3px 10px 0px rgba(0, 0, 0, 0.1);
-    transition: 1s;
-                
-    &:hover {
-        background: rgb(253, 71, 71);
-    }
-    &:active {
-        background: rgb(177, 9, 9);
-    }
 }
-
-h1 {
-    font-size: 65px;
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 40px;
-    font-weight: bold;
-}
-
-h3 {
-    font-size: 25px;
-}
-
-p {
-    font-size: 18px;
-    color: rgb(105, 105, 105);
-}
-
-body {
-    font-family: 'Lato', sans-serif;
-}
-
-.container {
-    width: 1000px;
+.main-container{
+    max-width: 1200px;
+    min-width: 375px;
     height: 100%;
     margin: 0 auto;
-}
-
-.header {
     display: grid;
-    min-height: 100vh;
-    position: relative;
-    align-content: center;
-    background: rgba(0, 0, 0, 0.5);
-    &::before {
-        position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-        background: url(../image/scr_backround.jpg) no-repeat center / cover;
+    gap: 50px;
+    grid-template-rows: 100px auto 100px;
+    grid-template-areas: 
+    "header" 
+    "main" 
+    "footer";
+}
+.header{
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    &__menu-burger{
+        display: none;
     }
-    &__logo {
-        color: white;
-        text-align: center;
-        margin-bottom: 100px;
-        &_text-color {
-            color: red;
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        p {
-            color: white;
-            margin-bottom: 50px
-        }
-        button {
-            @extend %btn__connection;
-        }
-    }
-    &__menu {
+    &__logo{
         display: flex;
-        justify-content: space-between;
-        &-link {
-            text-decoration: none;
+        text-decoration: none;
+        width: 160px;
+        h1{
+            font-size: 40px;
+            font-weight: bold;
             color: black;
-            border-bottom: 2px solid black;
-            &:hover {
-                border-bottom: 4px solid white;
+            text-transform: uppercase;
+        }
+    }
+    &__nav{
+        &-link{
+            margin-right: 20px;
+            color: black;
+            font-size: 16px;
+            text-decoration: none;
+            text-transform: uppercase;
+            &:hover{
+                color: gray;
             }
         }
     }
-}
-
-.main {
-    display: grid;
-    &__content {
-        display: grid;
-        margin-top: 50px;
-        border: 1px solid gray;
-        padding: 50px;
-        grid-template-rows: auto;
-        row-gap: 50px;
-        h2 {
-            text-align: center;
+    &__social{
+        display: flex;
+        justify-content: flex-end;
+        &-icon{
+            margin-left: 20px;
+            opacity: 0.7;
+           &:hover{
+               opacity: 1;
+           }
         }
     }
-    &__section {
-        border-bottom: 1px solid rgb(241, 241, 241);
-        h3 {
-            margin-bottom: 20px;
-        }
-        p {
-            line-height: 1.1em;
-            margin-bottom: 20px;
-        } 
-    }
-    button {
-        display: block;
-        margin: 50px auto;
-        @extend %btn__connection;
-    }   
 }
 
-.footer {
+.main{
+    grid-area: main;
     display: grid;
-    align-content: center;
-    min-height: 200px;
-    background: rgb(235, 235, 235);
-    &__menu {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);   
-        justify-items: center;  
-        align-items: center;   
-    }
-    &__menu-list {
-        display: grid;
-    }
-    &__menu-item {
+    gap: 100px;
+    &__img{
+        display: flex;
         justify-self: center;
-        margin-bottom: 10px;
-        font-size: 16px;
-        color: gray;
-        cursor: pointer;
-        &:hover{
-            color: black;
-        }
-    }
-}
-
-.modal {
-    display: none;
-    position: relative;
-    justify-content: center;
-    align-content: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.8);
-    &__window {
-        display: grid;
-        justify-content: center;
-        align-content: center;
-        width: 400px;
-        background: white;
-        border-radius: 20px;
-        height: 500px;
-    }
-    &__close {
-        position: absolute;
-        top: 5px;
-        color: white;
-        font-size: 30px;
-        right: 10px;
-        cursor: pointer;
-        margin-bottom: 20px;
-    }
-    &__form {
-        display: grid;
-        width: 300px;
-        height: 400px;
-        grid-template-rows: 1fr 1fr 1fr 3fr;
-        row-gap: 30px;
-    }
-    &__submit {
-        @extend %btn__connection;
-        margin: auto;
-    }
-    
-}
-
-.modal__image {
-    &-window {
-        width: 600px;
-        height: 600px;
-    }
-    &-img {
         overflow: hidden;
-        img {
+        &-photo{
             object-fit: cover;
-            border-radius: 10px;
-            width: 100%;
-            height: 100%;
+            border-radius: 50%;
         }
     }
+    &__bar{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 50px;
+        grid-auto-flow: dense;
+        &-box{
+            h3{
+                font-size: 18px;
+                margin-bottom: 20px;
+                font-weight: bold;
+            }
+            p{
+                font-size: 16px;
+                line-height: 1.5em;
+            }
+        }
+        &-letter_color {
+            text-transform: uppercase;
+        }
+        &>:nth-child(1){
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        &>:nth-child(5){
+            grid-column: span 2;
+        }
+    }
+    &__skills{
+        display: grid;
+        height: 100px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 50px;
+        &-box{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2{
+                font-size: 20px;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+            }
+        }
+        &-line{
+            display: flex;
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+            align-items: center;
+            padding: 6px;
+            margin-bottom: 10px;
+            background: rgb(228, 228, 228);
+            &_progress{
+                height: 10px;
+                border-radius: 5px;
+                background: rgb(137, 131, 230);
+            }
+            &_procent{
+                font-size: 20px;
+            }
+            &-html{
+                width: 100%;
+            }
+            &-css{
+                width: 85%;
+            }
+            &-js{
+                width: 10%;
+            }
+            &-scss{
+                width: 70%;
+            }
+        }
+
+    }
 }
+
+@media screen and (max-width: 1200px) {
+    .main-container{
+        max-width: 800px;
+        padding: 20px;
+    }
+}
+@media screen and (max-width: 800px){
+    .main-container{
+        max-width: 600px;
+        padding: 20px;
+    }
+    .header {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .header__menu-burger{
+        display: flex;
+        justify-self: flex-start;
+    }
+    .header__logo{
+        justify-self: center;
+    }
+    .header__nav{
+        display: none;
+    }
+    .header__social{
+        justify-content: start;
+    } 
+}
+@media screen and (max-width: 500px){
+    .main-container{
+        padding: 20px;
+    }
+    .header{
+        grid-template-columns: 1fr 5fr;
+    }
+    .header__social{
+        display: none;
+    }
+    .main__bar{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
